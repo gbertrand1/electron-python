@@ -1,0 +1,16 @@
+{
+  "name": "electron-python",
+  "version": "1.0.0",
+  "description": "Small electron app with python engine",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Gabriel Bertrand",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^7.0.1",
+    "node": "^12.13.0",
+    "python-shell": "^1.0.8"
+  }
+}
