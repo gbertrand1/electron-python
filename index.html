@@ -1,27 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>TT Manager</title>
-    <link href="ui/styles/main.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-    <br>
-    <div>
-      <label>Enter your city here</label>
-      <input id="city" type="text" placeholder="City"/>
-      <button class="btn btn-success" onclick="run_test()">Go!</button>
-    </div>
-    <div>
-        <button onclick="window.location.href = 'ui/pages/app.html';">Click Here</button>
-    </div>
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-    <script src="linkers/linker.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>TT Manager</title>
+  <link href="ui/styles/main.css" rel="stylesheet" type="text/css" />
+  <link href="ui/styles/sidebar.css" rel="stylesheet" type="text/css" />
+  <!-- <link rel="preload" href="ui/js/nav.js" as="script"> -->
+  <h1>Hello World!</h1>
+  <br>
+  <div class="sidenav">
+    <a href="#" onclick="load_about()">About</a>
+    <a href="#" onclick="load_100G()">100G</a>
+    <a href="#" onclick="load_400G()">400G</a>
+  </div>
+
+
+  <!-- 
+  <div>
+    <button onclick="window.location.href = 'ui/pages/sidebar.html';">Click Here</button>
+  </div> -->
+  <!-- <div id="topBar"> <a href="#" onclick="load_home()"> HOME </a></div> -->
+
+
+  <div class="main">
+    <div id="page"> </div>
+  </div>
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+  <script src="ui/js/nav.js"></script>
+  <script src="ui/js/100G.js"></script>
+  <script>
+    function load_home() {
+      document.getElementById("content").innerHTML = '<object type="text/html" data="ui/pages/100G.html" ></object>';
+    }
+    function load_about() {
+      document.getElementById("page").innerHTML = '<object type="text/html" data="ui/pages/about.html" ></object>';
+    }
+    function load_100G() {
+      document.getElementById("page").innerHTML = '<object type="text/html" data="ui/pages/100G.html" ></object>';
+      var ping_btn = getElementById("ping_btn").innerHTML;
+      ping_btn.addEventListenerById('click', function () {
+        start_ping()
+      })
+    }
+    function load_400G() {
+      document.getElementById("page").innerHTML = '<object type="text/html" data="ui/pages/400G.html" ></object>';
+    }
+  </script>
   </body>
+
 </html>
