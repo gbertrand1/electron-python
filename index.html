@@ -39,7 +39,10 @@
     }
     function load_100G() {
       document.getElementById("page").innerHTML = '<object type="text/html" data="ui/pages/100G.html" ></object>';
-      var ping_btn = getElementById("ping_btn").innerHTML;
+      // https://www.xul.fr/ajax/responseHTML-attribute.php <-- Looks like info on the issue. load html object as var and 
+      // operate on it locally
+      var ping_btn = document.getElementById("ping_btn");
+      console.log(ping_btn);
       ping_btn.addEventListenerById('click', function () {
         start_ping()
       })
