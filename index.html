@@ -13,6 +13,7 @@
     <a href="#" onclick="load_about()">About</a>
     <a href="#" onclick="load_100G()">100G</a>
     <a href="#" onclick="load_400G()">400G</a>
+    <a href="#" onclick="start_ping()">load button</a>
   </div>
 
 
@@ -30,6 +31,7 @@
   <script src="./renderer.js"></script>
   <script src="ui/js/nav.js"></script>
   <script src="ui/js/100G.js"></script>
+  <script type="text/javascript" src="node_modules/dompurify/dist/purify.js"></script>
   <script>
     function load_home() {
       document.getElementById("content").innerHTML = '<object type="text/html" data="ui/pages/100G.html" ></object>';
@@ -43,21 +45,21 @@
           return response.text()
         })
         .then(function (html) {
-          document.getElementById("page").innerHTML = html;
+          var cleanHTML = DOMPurify.sanitize(html);
+          document.getElementById("page").innerHTML = cleanHTML;
         })
-
-      var ping_btn = document.getElementById("page");
-      console.log(ping_btn);
-      ping_btn.addEventListenerById('click', function () {
-        start_ping()
-      })
+      // load_buttons_DOM();
     }
-    function load_buttons_DOM() {
-      var ping_btn = document.getElementById("ping_btn");
-      console.log(ping_btn);
-      ping_btn.addEventListenerById('click', function () {
-        start_ping()
-      })
+    function load_button() {
+      // start_ping();
+      document.getElementById("ping_btn").addEventListenerById("click", start_ping());
+      // var ping_btn = document.querySelector("#ping_btn");
+      // var ping_btn = pageHTML.getElementById("ping_btn");
+
+      // console.log(ping_btn);
+      // ping_btn.addEventListenerById('click', function () {
+      //   start_ping()
+      // })    
     }
     // https://www.xul.fr/ajax/responseHTML-attribute.php <-- Looks like info on the issue. load html object as var and 
     // operate on it locally
