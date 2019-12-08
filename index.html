@@ -38,15 +38,29 @@
       document.getElementById("page").innerHTML = '<object type="text/html" data="ui/pages/about.html" ></object>';
     }
     function load_100G() {
-      document.getElementById("page").innerHTML = '<object type="text/html" data="ui/pages/100G.html" ></object>';
-      // https://www.xul.fr/ajax/responseHTML-attribute.php <-- Looks like info on the issue. load html object as var and 
-      // operate on it locally
+      fetch('ui/pages/100G.html')
+        .then(function (response) {
+          return response.text()
+        })
+        .then(function (html) {
+          document.getElementById("page").innerHTML = html;
+        })
+
+      var ping_btn = document.getElementById("page");
+      console.log(ping_btn);
+      ping_btn.addEventListenerById('click', function () {
+        start_ping()
+      })
+    }
+    function load_buttons_DOM() {
       var ping_btn = document.getElementById("ping_btn");
       console.log(ping_btn);
       ping_btn.addEventListenerById('click', function () {
         start_ping()
       })
     }
+    // https://www.xul.fr/ajax/responseHTML-attribute.php <-- Looks like info on the issue. load html object as var and 
+    // operate on it locally
     function load_400G() {
       document.getElementById("page").innerHTML = '<object type="text/html" data="ui/pages/400G.html" ></object>';
     }
