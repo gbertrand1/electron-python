@@ -6,6 +6,17 @@ const path = require('path')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
+// If there is an issue with require in renderer process, 
+// local electron is installed and is screwing up the namespace. 
+// Uninstall; 
+// npm uninstall electron 
+// npm uninstall -g electron
+// Then;
+// npm install -g electron
+// This will cause the global electron path to be 
+// added to $PATH and thus resolve any namespace issues 
+// with require.
+
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({

@@ -1,11 +1,3 @@
-// var start_ping_btn = document.getElementById('ping_btn')
-
-// start_ping_btn.addEventListener('click', function () {
-//     start_ping();
-// })
-
-console.log("100G js loaded");
-
 function start_ping() {
 
     var { PythonShell } = require('electron').remote.require('python-shell');
