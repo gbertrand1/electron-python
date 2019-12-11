@@ -6,23 +6,14 @@
   <title>TT Manager</title>
   <link href="ui/styles/main.css" rel="stylesheet" type="text/css" />
   <link href="ui/styles/sidebar.css" rel="stylesheet" type="text/css" />
-  <!-- <link rel="preload" href="ui/js/nav.js" as="script"> -->
+
   <h1>Hello World!</h1>
   <br>
   <div class="sidenav">
     <a href="#" onclick="load_about()">About</a>
     <a href="#" onclick="load_100G()">100G</a>
     <a href="#" onclick="load_400G()">400G</a>
-    <a href="#" onclick="start_ping()">load button</a>
   </div>
-
-
-  <!-- 
-  <div>
-    <button onclick="window.location.href = 'ui/pages/sidebar.html';">Click Here</button>
-  </div> -->
-  <!-- <div id="topBar"> <a href="#" onclick="load_home()"> HOME </a></div> -->
-
 
   <div class="main">
     <div id="page"> </div>
@@ -32,41 +23,6 @@
   <script src="ui/js/nav.js"></script>
   <script src="ui/js/100G.js"></script>
   <script type="text/javascript" src="node_modules/dompurify/dist/purify.js"></script>
-  <script>
-    function load_home() {
-      document.getElementById("content").innerHTML = '<object type="text/html" data="ui/pages/100G.html" ></object>';
-    }
-    function load_about() {
-      document.getElementById("page").innerHTML = '<object type="text/html" data="ui/pages/about.html" ></object>';
-    }
-    function load_100G() {
-      fetch('ui/pages/100G.html')
-        .then(function (response) {
-          return response.text()
-        })
-        .then(function (html) {
-          var cleanHTML = DOMPurify.sanitize(html);
-          document.getElementById("page").innerHTML = cleanHTML;
-        })
-      // load_buttons_DOM();
-    }
-    function load_button() {
-      // start_ping();
-      document.getElementById("ping_btn").addEventListenerById("click", start_ping());
-      // var ping_btn = document.querySelector("#ping_btn");
-      // var ping_btn = pageHTML.getElementById("ping_btn");
-
-      // console.log(ping_btn);
-      // ping_btn.addEventListenerById('click', function () {
-      //   start_ping()
-      // })    
-    }
-    // https://www.xul.fr/ajax/responseHTML-attribute.php <-- Looks like info on the issue. load html object as var and 
-    // operate on it locally
-    function load_400G() {
-      document.getElementById("page").innerHTML = '<object type="text/html" data="ui/pages/400G.html" ></object>';
-    }
-  </script>
   </body>
 
 </html>

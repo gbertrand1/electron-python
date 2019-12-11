@@ -4,6 +4,8 @@
 //     start_ping();
 // })
 
+console.log("100G js loaded");
+
 function start_ping() {
 
     var { PythonShell } = require('electron').remote.require('python-shell');

@@ -10,8 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "dompurify": "^2.0.7",
-    "electron": "^7.0.1",
-    "jsdom": "^15.2.1",
     "node": "^12.13.0",
     "python-shell": "^1.0.8"
   }
