@@ -9,7 +9,7 @@
   "author": "Gabriel Bertrand",
   "license": "ISC",
   "dependencies": {
-    "dompurify": "^2.0.7",
+    "dompurify": "^2.0.17",
     "node": "^12.13.0",
     "python-shell": "^1.0.8"
   }
